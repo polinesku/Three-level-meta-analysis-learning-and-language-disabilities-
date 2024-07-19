@@ -1,0 +1,5 @@
+# Filter data for rows where "MMR or MMN?" equals "MMN"
+filtered_data <- subset(AMPL_LD/DLD, `MMR or MMN?` == "MMN") 
+
+# Calculate V for the subset of data
+filtered_data$V <- ((filtered_data$N_Control + filtered_data$N_Clinical) / (filtered_data$N_Control * filtered_data$N_Clinical)) + (filtered_data$AmplitudeHedgesG^2 / (2 * (filtered_data$N_Control + filtered_data$N_Clinical)))
